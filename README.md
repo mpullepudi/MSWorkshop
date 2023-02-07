@@ -20,4 +20,5 @@ general
 dotnet build
 dotnet watch
 dotnet run
+app.run(http://localhost:5222);
 
