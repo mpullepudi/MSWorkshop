@@ -3,15 +3,28 @@
 <PageTitle>Chat API</PageTitle>
 
 <MudText Typo="Typo.h3" GutterBottom="true">Call Chat API</MudText>
-<MudText Class="mb-4">Current count: @currentCount</MudText>
-// <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Click me</MudButton>
+<MudText Typo="Typo.h3" GutterBottom="true">@Result</MudText>
+
+<MudTextField @bind-Value="Name" Label="Name" Variant="Variant.Outlined"></MudTextField>
+<MudTextField @bind-Value="Body" Label="Body" Variant="Variant.Outlined"></MudTextField>
+
+<br/>
+
+<MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Click me</MudButton>
 
 
 @code {
-    private int currentCount = 0;
 
-    private void IncrementCount()
+   // public record struct Message(string Name, string Body);
+    // public List<Message> Session;
+    private int currentCount = 0;
+    public string Name;
+    public string Body;
+    public string Result;
+    private async void IncrementCount()
     {
-        currentCount++;
-    }
+       // currentCount++;
+       Result = await new HttpClient().GetStringAsync($"http://localhost:5001/Chat?name={Name}&body={Body}");
+       StateHasChanged();
+     }
 }
