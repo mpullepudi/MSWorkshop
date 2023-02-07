@@ -13,7 +13,7 @@ https://github.com/MudBlazor/Templates
 dotnet new --install Mudblazor.Templates
 dotnet new mudblazor --host Server 
 <Change the template to .NET 7.0>
-
+https://mudblazor.com/components/textfield#basic-text-field's
 
 general
 -------
