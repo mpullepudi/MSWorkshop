@@ -25,6 +25,7 @@
     {
        // currentCount++;
        Result = await new HttpClient().GetStringAsync($"http://localhost:5001/Chat?name={Name}&body={Body}");
+      // Result = await new HttpClient().GetStringAsync("http://localhost:5001/Chat?name=Name&body=Bodies");
        StateHasChanged();
      }
 }
